@@ -1,5 +1,5 @@
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface SameGameTest : SenTestCase
+@interface BlockTest : SenTestCase
 
 @end
