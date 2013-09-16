@@ -206,6 +206,9 @@
 		421F975517E702A00025ADFB /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 421F975317E702A00025ADFB /* Game.cpp */; };
 		421F975817E702C40025ADFB /* Field.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 421F975617E702C40025ADFB /* Field.cpp */; };
 		421F975B17E702E20025ADFB /* Block.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 421F975917E702E20025ADFB /* Block.cpp */; };
+		421F975F17E73E320025ADFB /* FieldTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 421F975E17E73E320025ADFB /* FieldTest.mm */; };
+		421F976217E741770025ADFB /* BlockTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 421F976117E741770025ADFB /* BlockTest.mm */; };
+		421F976517E7B0660025ADFB /* GameTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 421F976417E7B0660025ADFB /* GameTest.mm */; };
 		42AFC21117E6FB7B00154C0A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42AFC21017E6FB7B00154C0A /* SenTestingKit.framework */; };
 		42AFC21217E6FB7B00154C0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		42AFC21317E6FB7B00154C0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -654,6 +657,12 @@
 		421F975917E702E20025ADFB /* Block.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Block.cpp; path = ../Classes/Block.cpp; sourceTree = "<group>"; };
 		421F975A17E702E20025ADFB /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Block.h; path = ../Classes/Block.h; sourceTree = "<group>"; };
 		421F975C17E703090025ADFB /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Config.h; path = ../Classes/Config.h; sourceTree = "<group>"; };
+		421F975D17E73E320025ADFB /* FieldTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldTest.h; sourceTree = "<group>"; };
+		421F975E17E73E320025ADFB /* FieldTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FieldTest.mm; sourceTree = "<group>"; };
+		421F976017E741770025ADFB /* BlockTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockTest.h; sourceTree = "<group>"; };
+		421F976117E741770025ADFB /* BlockTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BlockTest.mm; sourceTree = "<group>"; };
+		421F976317E7B0660025ADFB /* GameTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTest.h; sourceTree = "<group>"; };
+		421F976417E7B0660025ADFB /* GameTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameTest.mm; sourceTree = "<group>"; };
 		42AFC20F17E6FB7B00154C0A /* SameGameTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SameGameTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42AFC21017E6FB7B00154C0A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		42AFC21617E6FB7B00154C0A /* SameGameTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SameGameTest-Info.plist"; sourceTree = "<group>"; };
@@ -1521,6 +1530,12 @@
 				42AFC21A17E6FB7B00154C0A /* SameGameTest.h */,
 				42AFC21B17E6FB7B00154C0A /* SameGameTest.m */,
 				42AFC21517E6FB7B00154C0A /* Supporting Files */,
+				421F975D17E73E320025ADFB /* FieldTest.h */,
+				421F975E17E73E320025ADFB /* FieldTest.mm */,
+				421F976017E741770025ADFB /* BlockTest.h */,
+				421F976117E741770025ADFB /* BlockTest.mm */,
+				421F976317E7B0660025ADFB /* GameTest.h */,
+				421F976417E7B0660025ADFB /* GameTest.mm */,
 			);
 			path = SameGameTest;
 			sourceTree = "<group>";
@@ -1885,6 +1900,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				42AFC21C17E6FB7B00154C0A /* SameGameTest.m in Sources */,
+				421F975F17E73E320025ADFB /* FieldTest.mm in Sources */,
+				421F976217E741770025ADFB /* BlockTest.mm in Sources */,
+				421F976517E7B0660025ADFB /* GameTest.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
