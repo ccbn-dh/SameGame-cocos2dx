@@ -12,6 +12,9 @@ private:
     Field* field;
     int lastNumber;
     bool** filledBlocks;
+    bool** deletableBlocks;
+    
+    void execDeletableCheck(int color, int x, int y);
     
 public:
     Game();
@@ -20,8 +23,11 @@ public:
     Field* getField();
     int getLastNumber();
     bool** getFilledBlocks();
+    bool** getDeletableBlocks();
     
     void fillField();
+    
+    void selectDeletable(int x, int y);
 };
 
 #endif /* defined(__SameGame__Game__) */
