@@ -50,21 +50,6 @@ bool** Game::getDeletableBlocks()
     return deletableBlocks;
 }
 
-void Game::fillField()
-{
-    Block*** b = field->getBlocks();
-    for (int x = 0; x < FIELD_WIDTH; x++) {
-        for (int y = 0; y < FIELD_HEIGHT; y++) {
-            filledBlocks[x][y] = false;
-            if (b[x][y] == NULL) {
-                lastNumber++;
-                b[x][y] = new Block(lastNumber, rand() % Block::kColor_Last);
-                filledBlocks[x][y] = true;
-            }
-        }
-    }
-}
-
 void Game::selectDeletable(int posX, int posY)
 {
     for (int x = 0; x < FIELD_WIDTH; x++) {
@@ -97,4 +82,49 @@ void Game::execDeletableCheck(int color, int x, int y)
     if (x - 1 >= 0)           execDeletableCheck(color, x - 1, y);
     // right
     if (x + 1 < FIELD_WIDTH)  execDeletableCheck(color, x + 1, y);
+}
+
+void Game::deleteDeletable()
+{
+    for (int x = 0; x < FIELD_WIDTH; x++) {
+        for (int y = 0; y < FIELD_HEIGHT; y++) {
+            if (deletableBlocks[x][y]) {
+                delete field->getBlocks()[x][y];
+                field->getBlocks()[x][y] = NULL;
+            }
+            deletableBlocks[x][y] = false;
+        }
+    }
+}
+
+void Game::fillBlocks()
+{
+    Block*** b = field->getBlocks();
+    for (int x = 0; x < FIELD_WIDTH; x++) {
+        for (int y = 0; y < FIELD_HEIGHT; y++) {
+            filledBlocks[x][y] = false;
+            if (b[x][y] == NULL) {
+                lastNumber++;
+                b[x][y] = new Block(lastNumber, rand() % Block::kColor_Last);
+                filledBlocks[x][y] = true;
+            }
+        }
+    }
+}
+
+void Game::dropBlocks()
+{
+    Block*** b = field->getBlocks();
+    for (int x = 0; x < FIELD_WIDTH; x++) {
+        for (int y = 0; y < FIELD_HEIGHT; y++) {
+            if (b[x][y] == NULL) {
+                for (int posY = y; posY + 1 < FIELD_HEIGHT; posY++) {
+                    if (b[x][posY + 1] != NULL) {
+                        b[x][posY] = b[x][posY + 1];
+                        b[x][posY + 1] = NULL;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -18,7 +18,7 @@
     STAssertTrue(g->getFilledBlocks()[FIELD_HEIGHT-1][FIELD_WIDTH-1] == true, @"after fill field");
 }
 
-- (void)testSelectDeletable
+- (void)testDelete
 {
     Game* g = new Game();
     
@@ -41,6 +41,22 @@
     STAssertTrue(deletableBlocks[0][0] == false, @"");
     STAssertTrue(deletableBlocks[4][4] == false, @"");
     STAssertTrue(deletableBlocks[9][9] == false, @"");
+    
+    g->deleteDeletable();
+    
+    STAssertTrue(g->getField()->getBlocks()[0][5] == NULL, @"deleted");
+    STAssertTrue(g->getField()->getBlocks()[3][5] == NULL, @"deleted");
+    STAssertTrue(g->getField()->getBlocks()[6][5] == NULL, @"deleted");
+    STAssertTrue(g->getField()->getBlocks()[9][5] == NULL, @"deleted");
+    
+    STAssertTrue(g->getField()->getBlocks()[0][0] != NULL, @"not deleted");
+    STAssertTrue(g->getField()->getBlocks()[4][4] != NULL, @"not deleted");
+    STAssertTrue(g->getField()->getBlocks()[9][9] != NULL, @"not deleted");
+    
+    g->dropBlocks();
+    
+    STAssertTrue(g->getField()->getBlocks()[0][5] != NULL, @"droped");
+    STAssertTrue(g->getField()->getBlocks()[0][9] == NULL, @"droped");
 }
 
 @end

@@ -25,9 +25,11 @@ public:
     bool** getFilledBlocks();
     bool** getDeletableBlocks();
     
-    void fillField();
-    
     void selectDeletable(int x, int y);
+    void deleteDeletable();
+    
+    void fillBlocks();    
+    void dropBlocks();
 };
 
 #endif /* defined(__SameGame__Game__) */
