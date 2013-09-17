@@ -23,9 +23,9 @@
     Game* g = new Game();
     
     // 縦縞
-    for (int i = 0; i < FIELD_HEIGHT; i++) {
-        for (int j = 0; j < FIELD_WIDTH; j++) {
-            g->getField()->getBlocks()[i][j] = new Block(1, j % Block::kColor_Last);
+    for (int x = 0; x < FIELD_WIDTH; x++) {
+        for (int y = 0; y < FIELD_HEIGHT; y++) {
+            g->getField()->getBlocks()[x][y] = new Block(1, y % Block::kColor_Last);
         }
     }
     
