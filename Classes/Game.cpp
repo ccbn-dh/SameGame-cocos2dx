@@ -118,10 +118,11 @@ void Game::dropBlocks()
     for (int x = 0; x < FIELD_WIDTH; x++) {
         for (int y = 0; y < FIELD_HEIGHT; y++) {
             if (b[x][y] == NULL) {
-                for (int posY = y; posY + 1 < FIELD_HEIGHT; posY++) {
-                    if (b[x][posY + 1] != NULL) {
-                        b[x][posY] = b[x][posY + 1];
-                        b[x][posY + 1] = NULL;
+                for (int posY = y + 1; posY < FIELD_HEIGHT; posY++) {
+                    if (b[x][posY] != NULL) {
+                        b[x][y] = b[x][posY];
+                        b[x][posY] = NULL;
+                        break;
                     }
                 }
             }

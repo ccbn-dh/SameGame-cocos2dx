@@ -106,16 +106,7 @@ void GameScene::deleteBlocks(int x, int y)
     
     // ブロック落下
     game->dropBlocks();
-    for (int x = 0; x < FIELD_WIDTH; x++) {
-        for (int y = 0; y < FIELD_HEIGHT; y++) {
-            Block* b = game->getField()->getBlocks()[x][y];
-            if (b != NULL) {
-                CCLabelTTF* l = (CCLabelTTF*)this->getChildByTag(b->getNumber());
-                CCMoveTo* action = CCMoveTo::create(0.2, ccp(size.width * (0.32 + x * 0.04), size.height * (0.1 + y * 0.06)));
-                l->runAction(action);
-            }
-        }
-    }
+    
     
     // ブロック埋め合わせ
     game->fillBlocks();
@@ -126,7 +117,7 @@ void GameScene::deleteBlocks(int x, int y)
                 Block* b = game->getField()->getBlocks()[x][y];
                 
                 CCLabelTTF* l = CCLabelTTF::create("■", "Arial", 24.0);
-                l->setPosition(ccp(size.width * (0.32 + x * 0.04), size.height * (0.1 + y * 0.06)));
+                l->setPosition(ccp(size.width * (0.32 + x * 0.04), size.height * (0.1 + (y + FIELD_HEIGHT) * 0.06)));
                 l->setTag(b->getNumber());
                 switch (b->getColor()) {
                     case Block::kColor_White:  l->setColor(ccc3(255, 255, 255)); break;
@@ -137,6 +128,17 @@ void GameScene::deleteBlocks(int x, int y)
                     default: break;
                 }
                 this->addChild(l);
+            }
+        }
+    }
+    
+    for (int x = 0; x < FIELD_WIDTH; x++) {
+        for (int y = 0; y < FIELD_HEIGHT; y++) {
+            Block* b = game->getField()->getBlocks()[x][y];
+            if (b != NULL) {
+                CCLabelTTF* l = (CCLabelTTF*)this->getChildByTag(b->getNumber());
+                CCMoveTo* action = CCMoveTo::create(1.0, ccp(size.width * (0.32 + x * 0.04), size.height * (0.1 + y * 0.06)));
+                l->runAction(action);
             }
         }
     }
